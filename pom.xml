@@ -46,11 +46,24 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- <plugin> <artifactId>maven-antrun-plugin</artifactId> <version>1.7</version> 
-				<executions> <execution> <phase>install</phase> <configuration> <target> 
-				<copy file="${basedir}/target/azuredemo-0.0.1-SNAPSHOT.jar" todir="D:/home/site/wwwroot" 
-				/> </target> </configuration> <goals> <goal>run</goal> </goals> </execution> 
-				</executions> </plugin> -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<copy file="${basedir}/target/azuredemo-0.0.1-SNAPSHOT.jar"
+									todir="D:/home/site/wwwroot" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 	</build>
