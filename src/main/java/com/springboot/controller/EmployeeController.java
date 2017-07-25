@@ -8,6 +8,7 @@ import javax.websocket.server.PathParam;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,12 +41,16 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value="/employee/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateEmployee(@PathParam("id") Long id, @RequestBody Employee employee) {
+	public ResponseEntity<?> updateEmployee(@PathVariable("id") Integer id, @RequestBody Employee employee) {
 		log.info("updating employee: " +id);
-		if(id == 1000)
-			throw new NullPointerException();
 		employeeService.updateEmployee(employee);
 		return ResponseEntity.ok("employee updated.");
+	}
+	
+	@RequestMapping(value="/employee/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteEmployee(@PathVariable("id") Integer id) {	
+		log.info("deleting employee: " +id);
+		return ResponseEntity.ok(employeeService.deleteEmployee(id));
 	}
 
 }

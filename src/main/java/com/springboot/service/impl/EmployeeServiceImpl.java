@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.findAll();
 	}
 
-	public Employee getEmployee(Long id) {
+	public Employee getEmployee(Integer id) {
 		return null;
 	}
 
@@ -29,6 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public Employee updateEmployee(Employee employee) {
 		return employeeRepository.save(employee);
+	}
+
+	public String   deleteEmployee(Integer id) {
+		employeeRepository.delete(id);
+		return "Employee deleted";
 	}
 
 }

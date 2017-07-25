@@ -7,8 +7,9 @@ import com.springboot.model.Employee;
 public interface EmployeeService {
 
 	public List<Employee> getEmployees();
-	public Employee getEmployee(Long id);
+	public Employee getEmployee(Integer id);
 	public Employee createEmployee(Employee employee);
 	public Employee updateEmployee(Employee employee);
+	public String deleteEmployee(Integer id);
 }
  
